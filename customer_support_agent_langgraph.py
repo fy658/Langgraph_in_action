@@ -10,7 +10,9 @@ import os
 
 # Load environment variables and set OpenAI API key
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
+
+llm = ChatOpenAI(model="Qwen/Qwen3-8B", temperature=0.7)
+
 
 class State(TypedDict):
     query: str
@@ -24,7 +26,7 @@ def categorize(state: State) -> State:
         "Categorize the following customer query into one of these categories: "
         "Technical, Billing, General. Query: {query}"
     )
-    chain = prompt | ChatOpenAI(temperature=0)
+    chain = prompt | llm
     category = chain.invoke({"query": state["query"]}).content
     return {"category": category}
 
@@ -34,7 +36,7 @@ def analyze_sentiment(state: State) -> State:
         "Analyze the sentiment of the following customer query. "
         "Respond with either 'Positive', 'Neutral', or 'Negative'. Query: {query}"
     )
-    chain = prompt | ChatOpenAI(temperature=0)
+    chain = prompt | llm
     sentiment = chain.invoke({"query": state["query"]}).content
     return {"sentiment": sentiment}
 
@@ -43,7 +45,7 @@ def handle_technical(state: State) -> State:
     prompt = ChatPromptTemplate.from_template(
         "Provide a technical support response to the following query: {query}"
     )
-    chain = prompt | ChatOpenAI(temperature=0)
+    chain = prompt | llm
     response = chain.invoke({"query": state["query"]}).content
     return {"response": response}
 
@@ -52,7 +54,7 @@ def handle_billing(state: State) -> State:
     prompt = ChatPromptTemplate.from_template(
         "Provide a billing support response to the following query: {query}"
     )
-    chain = prompt | ChatOpenAI(temperature=0)
+    chain = prompt | llm
     response = chain.invoke({"query": state["query"]}).content
     return {"response": response}
 
@@ -61,7 +63,7 @@ def handle_general(state: State) -> State:
     prompt = ChatPromptTemplate.from_template(
         "Provide a general support response to the following query: {query}"
     )
-    chain = prompt | ChatOpenAI(temperature=0)
+    chain = prompt | llm
     response = chain.invoke({"query": state["query"]}).content
     return {"response": response}
 
