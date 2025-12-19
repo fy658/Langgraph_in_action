@@ -132,47 +132,47 @@ def run_customer_support(query: str) -> Dict[str, str]:
         "response": results["response"]
     }
 
-query = "Please provide some opensource project about LangGraph with frontend vue. Can you help?"
-results = app.invoke({"query": query})
-print(results)
-print("*" * 50)
+# query = "Please provide some opensource project about LangGraph with frontend vue. Can you help?"
+# results = app.invoke({"query": query})
+# print(results)
+# print("*" * 50)
 
 
-# escalate
+# # escalate
 
-query = "My internet connection keeps dropping. Can you help?"
-result = run_customer_support(query)
-print(f"Query: {query}")
-print(f"Category: {result['category']}")
-print(f"Sentiment: {result['sentiment']}")
-print(f"Response: {result['response']}")
-print("\n")
+# query = "My internet connection keeps dropping. Can you help?"
+# result = run_customer_support(query)
+# print(f"Query: {query}")
+# print(f"Category: {result['category']}")
+# print(f"Sentiment: {result['sentiment']}")
+# print(f"Response: {result['response']}")
+# print("\n")
 
-# handle_technical
+# # handle_technical
 
-query = "I need help talking to chatGPT"
-result = run_customer_support(query)
-print(f"Query: {query}")
-print(f"Category: {result['category']}")
-print(f"Sentiment: {result['sentiment']}")
-print(f"Response: {result['response']}")
-print("\n")
+# query = "I need help talking to chatGPT"
+# result = run_customer_support(query)
+# print(f"Query: {query}")
+# print(f"Category: {result['category']}")
+# print(f"Sentiment: {result['sentiment']}")
+# print(f"Response: {result['response']}")
+# print("\n")
 
-# handle_billing
+# # handle_billing
 
-query = "where can i find my receipt?"
-result = run_customer_support(query)
-print(f"Query: {query}")
-print(f"Category: {result['category']}")
-print(f"Sentiment: {result['sentiment']}")
-print(f"Response: {result['response']}")
-print("\n")
+# query = "where can i find my receipt?"
+# result = run_customer_support(query)
+# print(f"Query: {query}")
+# print(f"Category: {result['category']}")
+# print(f"Sentiment: {result['sentiment']}")
+# print(f"Response: {result['response']}")
+# print("\n")
 
-# handle_general
+# # handle_general
 
-query = "What are your business hours?"
-result = run_customer_support(query)
-print(f"Query: {query}")
-print(f"Category: {result['category']}")
-print(f"Sentiment: {result['sentiment']}")
-print(f"Response: {result['response']}")
+# query = "What are your business hours?"
+# result = run_customer_support(query)
+# print(f"Query: {query}")
+# print(f"Category: {result['category']}")
+# print(f"Sentiment: {result['sentiment']}")
+# print(f"Response: {result['response']}")
